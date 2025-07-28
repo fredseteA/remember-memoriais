@@ -46,7 +46,7 @@ Seu nome é lembrado até os dias de hoje. Todos os membros de sua família são
   galeria: [] as Array<{ src: string; alt: string }>,
 
   // Altere o link para o memorial específico
-  linkMemorial: "https://remember-memoriais.vercel.app/memorial/lalae",
+  linkMemorial: "https://remember-memoriais.vercel.app/memorial/joca",
 }
 
 interface ModalProps {
