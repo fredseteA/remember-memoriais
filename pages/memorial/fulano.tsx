@@ -1,0 +1,214 @@
+"use client"
+
+import type React from "react"
+import { useState } from "react"
+import { X } from "lucide-react"
+
+// Dados do memorial - EDITE AQUI para criar novos memoriais
+const memorialData = {
+  nome: "Fulano",
+  subtitulo: "23/05/1950 - 15/03/2024",
+  localDescanso: "Cemitério São João Batista - Setor A, Quadra 15",
+  datasImportantes: ["Nascimento: 23/05/1950", "Casamento: 12/02/1975", "Nascimento do primeiro filho: 10/08/1978"],
+  profissao: "Engenheiro Civil",
+  religiao: "Católica",
+  hobbies: ["Pescaria aos domingos", "Leitura de biografias", "Jardinagem"],
+  qualidades: ["Generoso e prestativo", "Sempre disposto a ajudar", "Pai dedicado"],
+  jeitoSer: "Muito Bom",
+  frases: ["A vida é uma só, viva-a bem", "Família em primeiro lugar"],
+  outrosDetalhes: "Mais informações",
+  biografia: `Fulano da Silva nasceu em uma família humilde no interior, sempre demonstrando determinação e força de vontade para superar as dificuldades da vida. Desde jovem, mostrou interesse pelos estudos e pela construção, o que o levou a se formar em Engenharia Civil.
+
+Durante sua carreira profissional, participou de importantes obras de infraestrutura na cidade, deixando um legado de construções que perduram até hoje. Era conhecido por sua ética profissional e pela qualidade de seu trabalho.
+
+Como pai e marido, sempre priorizou a família, dedicando seus fins de semana aos filhos e esposa. Suas pescarias dominicais se tornaram tradição familiar, momentos de união e aprendizado.
+
+Sua generosidade era reconhecida por todos que o conheciam. Sempre disposto a ajudar vizinhos e amigos, deixou uma marca positiva na vida de muitas pessoas. Seu legado de bondade e dedicação continuará vivo na memória de todos que tiveram o privilégio de conviver com ele.`,
+  galeria: [
+    {
+      src: "/images/memorial-example.jpg",
+      alt: "Foto de Fulano",
+    },
+  ] as Array<{ src: string; alt: string }>,
+  linkMemorial: "https://google.com",
+}
+
+interface ModalProps {
+  isOpen: boolean
+  onClose: () => void
+  imageSrc: string
+  imageAlt: string
+}
+
+function ImageModal({ isOpen, onClose, imageSrc, imageAlt }: ModalProps) {
+  if (!isOpen) return null
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose}>
+          <X size={24} />
+        </button>
+        <img src={imageSrc || "/placeholder.svg"} alt={imageAlt} className="modal-image" />
+      </div>
+    </div>
+  )
+}
+
+interface CardProps {
+  title: string
+  children: React.ReactNode
+  show?: boolean
+}
+
+function Card({ title, children, show = true }: CardProps) {
+  if (!show) return null
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-4">
+      <h3 className="text-lg font-semibold text-blue-600 mb-3 flex items-center">
+        <span className="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+        {title}
+      </h3>
+      <div className="text-gray-700">{children}</div>
+    </div>
+  )
+}
+
+// Componente QR Code simples usando API externa
+function QRCodeComponent({ value, size = 128 }: { value: string; size?: number }) {
+  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(value)}`
+
+  return (
+    <img
+      src={qrUrl || "/placeholder.svg"}
+      alt="QR Code"
+      width={size}
+      height={size}
+      className="border border-gray-200 rounded"
+    />
+  )
+}
+
+export default function MemorialFulano() {
+  const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null)
+
+  const openModal = (src: string, alt: string) => {
+    setModalImage({ src, alt })
+  }
+
+  const closeModal = () => {
+    setModalImage(null)
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-4xl mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+            <svg className="w-12 h-12 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C12.5523 2 13 2.44772 13 3V11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H13V21C13 21.5523 12.5523 22 12 22C11.4477 22 11 21.5523 11 21V13H3C2.44772 13 2 12.5523 2 12C2 11.4477 2.44772 11 3 11H11V3C11 2.44772 11.4477 2 12 2Z" />
+            </svg>
+          </div>
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">{memorialData.nome}</h1>
+          <p className="text-xl text-gray-600">{memorialData.subtitulo}</p>
+        </div>
+
+        {/* Cards em duas colunas */}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {/* Coluna 1 */}
+          <div>
+            <Card title="Local de Descanso" show={!!memorialData.localDescanso}>
+              <p>{memorialData.localDescanso}</p>
+            </Card>
+
+            <Card title="Profissão" show={!!memorialData.profissao}>
+              <p>{memorialData.profissao}</p>
+            </Card>
+
+            <Card title="Hobbies e Interesses" show={memorialData.hobbies.length > 0}>
+              <ul className="space-y-1">
+                {memorialData.hobbies.map((hobby, index) => (
+                  <li key={index}>• {hobby}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card title="Jeito de Ser" show={!!memorialData.jeitoSer}>
+              <p>{memorialData.jeitoSer}</p>
+            </Card>
+
+            <Card title="Outros Detalhes" show={!!memorialData.outrosDetalhes}>
+              <p>{memorialData.outrosDetalhes}</p>
+            </Card>
+          </div>
+
+          {/* Coluna 2 */}
+          <div>
+            <Card title="Datas Importantes" show={memorialData.datasImportantes.length > 0}>
+              <ul className="space-y-1">
+                {memorialData.datasImportantes.map((data, index) => (
+                  <li key={index}>• {data}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card title="Religião" show={!!memorialData.religiao}>
+              <p>{memorialData.religiao}</p>
+            </Card>
+
+            <Card title="Qualidades Marcantes" show={memorialData.qualidades.length > 0}>
+              <ul className="space-y-1">
+                {memorialData.qualidades.map((qualidade, index) => (
+                  <li key={index}>• {qualidade}</li>
+                ))}
+              </ul>
+            </Card>
+
+            <Card title="Frases Marcantes" show={memorialData.frases.length > 0}>
+              <ul className="space-y-1">
+                {memorialData.frases.map((frase, index) => (
+                  <li key={index}>"{frase}"</li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        </div>
+
+        {/* Biografia - largura completa */}
+        <Card title="Biografia" show={!!memorialData.biografia}>
+          <div className="text-justify leading-relaxed whitespace-pre-line">{memorialData.biografia}</div>
+        </Card>
+
+        {/* Galeria de Memórias */}
+        <Card title="Galeria de Memórias" show={memorialData.galeria.length > 0}>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {memorialData.galeria.map((image, index) => (
+              <div key={index} className="cursor-pointer" onClick={() => openModal(image.src, image.alt)}>
+                <img
+                  src={image.src || "/placeholder.svg"}
+                  alt={image.alt}
+                  className="w-full h-32 object-cover rounded-lg hover:opacity-80 transition-opacity"
+                />
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        {/* QR Code */}
+        <div className="text-center mt-12">
+          <div className="inline-block bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <QRCodeComponent value={memorialData.linkMemorial} size={128} />
+            <p className="text-sm text-gray-600 mt-3">Escaneie para acessar este memorial</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal para imagens */}
+      {modalImage && (
+        <ImageModal isOpen={!!modalImage} onClose={closeModal} imageSrc={modalImage.src} imageAlt={modalImage.alt} />
+      )}
+    </div>
+  )
+}
