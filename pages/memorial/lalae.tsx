@@ -26,9 +26,12 @@ const memorialData = {
   Teve 6 irmãos.
   Casada com João Victor de Carvalho (Joca)
   Teve 13 filhos`,
-  biografia: `De uma inteligência invejável, leitora voraz, desde cedo demonstrou ter uma personalidade própria. Enquanto suas irmãs faziam magistério, ela queria fazer contabilidade. Como na época era proibido para mulheres, preferiu largar a escola e se casar. Uma esposa que soube estar ao lado do marido conduzindo com sabedoria e inteligência toda a família. Sempre colocou a educação dos filhos em primeiro lugar. Era uma mulher de silêncio e extremamente perspicaz em suas falas, firme em suas decisões e conselhos. Uma peculiaridade era seu sorriso fácil. Por isso, muito respeitada pelos familiares, amigos e comunidade... Lalae foi referência como mulher de fé, que conduziu filhos nesse caminho espiritual. O terço era sua arma maior. Reunia os filhos desde pequenos em torno dela à noite para rezar o terço. Além de seu amor incondicional pelo Sagrado Coração de Jesus e Maria, era muito devota de São José e Santo Antônio, que era seu padrinho, já que nasceu no seu dia. Deixou esse lindo legado também aos netos e próximas gerações.`,
+  biografia: `De uma inteligência invejável, leitora voraz, desde cedo demonstrou ter uma personalidade própria. Enquanto suas irmãs faziam magistério, ela queria fazer contabilidade. Como na época era proibido para mulheres, preferiu largar a escola e se casar. Uma esposa que soube estar ao lado do marido conduzindo com sabedoria e inteligência toda a família. Sempre colocou a educação dos filhos em primeiro lugar. Era uma mulher de silêncio e extremamente perspicaz em suas falas, firme em suas decisões e conselhos. Uma peculiaridade era seu sorriso fácil. Por isso, muito respeitada pelos familiares, amigos e comunidade. Lalae foi referência como mulher de fé, que conduziu filhos nesse caminho espiritual. O terço era sua arma maior. Reunia os filhos desde pequenos em torno dela à noite para rezar o terço. Além de seu amor incondicional pelo Sagrado Coração de Jesus e Maria, era muito devota de São José e Santo Antônio, que era seu padrinho, já que nasceu no seu dia. Deixou esse lindo legado também aos netos e próximas gerações.`,
 
-  galeria: [] as Array<{ src: string; alt: string }>,
+  galeria: [{
+      src: "/images/lalae-foto1.jpeg",
+      alt: "Foto de Fulano",
+    },] as Array<{ src: string; alt: string }>,
 
   // Altere o link para o memorial específico
   linkMemorial: "https://remember-memoriais.vercel.app/memorial/lalae",
@@ -198,9 +201,11 @@ export default function MemorialExemplo() {
         </Card>
 
         {/* QR Code */}
-        <div className="text-center mt-12">
-          <div className="inline-block bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <QRCodeComponent value={memorialData.linkMemorial} size={128} />
+        <div className="flex justify-center mt-16 mb-8">
+          <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-200 text-center">
+            <div className="flex justify-center mb-4">
+              <QRCodeComponent value={memorialData.linkMemorial} size={128} />
+            </div>
             <p className="text-sm text-gray-600 mt-3">Escaneie para acessar este memorial</p>
           </div>
         </div>

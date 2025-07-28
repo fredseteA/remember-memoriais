@@ -197,9 +197,11 @@ export default function MemorialFulano() {
         </Card>
 
         {/* QR Code */}
-        <div className="text-center mt-12">
-          <div className="inline-block bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <QRCodeComponent value={memorialData.linkMemorial} size={128} />
+        <div className="flex justify-center mt-16 mb-8">
+          <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-200 text-center">
+            <div className="flex justify-center mb-4">
+              <QRCodeComponent value={memorialData.linkMemorial} size={128} />
+            </div>
             <p className="text-sm text-gray-600 mt-3">Escaneie para acessar este memorial</p>
           </div>
         </div>
