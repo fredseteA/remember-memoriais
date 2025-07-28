@@ -31,7 +31,7 @@ const memorialData = {
   galeria: [] as Array<{ src: string; alt: string }>,
 
   // Altere o link para o memorial específico
-  linkMemorial: "https://remember.vercel.app/memorial/lalae",
+  linkMemorial: "https://remember-memoriais.vercel.app/memorial/lalae",
 }
 
 interface ModalProps {
