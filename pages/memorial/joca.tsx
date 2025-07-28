@@ -9,25 +9,44 @@ import { X } from "lucide-react"
 // Edite os dados abaixo conforme necessário
 
 const memorialData = {
-  nome: "Nome da Pessoa",
-  subtitulo: "DD/MM/AAAA - DD/MM/AAAA",
+  nome: "João Victor (Joca)",
+  subtitulo: "09/10/1913 - 09/10/1978",
 
   // Se não quiser mostrar um campo, deixe vazio "" ou []
-  localDescanso: "",
+  localDescanso: "Cemitério Municipal de Iguatama, Iguatama - MG", 
   datasImportantes: [] as string[],
   profissao: "",
-  religiao: "",
+  religiao: "Católico",
   hobbies: [] as string[],
   qualidades: [] as string[],
   jeitoSer: "",
   frases: [] as string[],
-  outrosDetalhes: ``,
-  biografia: ``,
+  outrosDetalhes: `Filho de:
+  José Victor Teles de Carvalho e Maria dos Anjos de Carvalho.`,
+  biografia: `Teve 7 irmãos e foi criado por sua avó. Frequentou a escola até os 8 anos de idade. O que mais demonstrou aprender foi fruto de sua capacidade autodidata: tinha uma inteligência lógico-matemática ímpar, era bom negociador e empreendedor. Os cálculos para seus negócios eram feitos de cabeça, sem nenhum papel.
+Casou-se com Geralda Leão de Carvalho (Lalae) na Paróquia de Nossa Senhora da Abadia em 30 de junho de 1939.
+Na semana do seu casamento perguntou a sua noiva: 
+-Você quer ser rica ou estudar seus filhos?
+E ela prontamente respondeu:
+-Estudar meus filhos.
+O diálogo entre os noivos demonstrava o quanto proporcionar educação aos filhos era o desejo mais profundo daquele tempo onde instituições escolares eram de difícil acesso e o quanto o casal estava conectado nas conquistas que verdadeiramente importava, a religião e a cultura.
+Tiveram 13 filhos num período de 20 anos e numa época onde se apresentava aos anticoncepcionais ao mercado, o sr. Joca jamais pensou em fazer o uso do método, mesmo após sua esposa ter graves problemas em partos. Confiaram na Providência Divina e até o 13° filho, no caso filha, Deus manteve íntegra a saúde de sua esposa.
+No início do casamento alugaram uma fazenda da avó de sua esposa. Logo após, comprou 13 alqueires de terra e iniciaram a Fazenda São João.
+Em 30 anos, ele a fez crescer até 300 alqueires, destes 300 alqueires, 80% margeava o Rio São Francisco. A sede da fazenda tinha uma casa excelente para os padrões da época, com água encanada.
+Nesta fazenda,muito do que se precisava para subsistência, era produzido. Havia um moinho de água para o fubá, o engenho para a cana, matéria-prima da rapadura, prensa para fazer o polvilho, e farinha de mandioca. 
+O Sr. Joca plantava milho, arroz, feijão, mandioca e cana. Criava porcos para abate e venda, criava também gado de corte e leite. Os cereais produzidos eram transportados em carros de boi e charretes de cavalo.
+Para que seus filhos estudassem, os enviou para colégios internatos, depois, mudou-se para Bambuí, e vendo que ambas as experiências não foram positivas, fez uma parceria com outros fazendeiros locais para construir o Colégio Pio XII.
+Em parceria, Sr. Joca e os fazendeiros também construíram o Clube Social para o lazer dos jovens da cidade. Sua vida financeira era muito boa, porém nunca ofereceu luxo ou facilidades aos filhos, ensinou o valor do trabalho e do estudo. Era um homem de poucas palavras, mas de palavras certas e firmes, o que prometia não voltava atrás e, portanto, considerado honrado entre seus pares. 
+Era católico, atuante e piedoso, junto com sua esposa Lalae. Os princípios da Igreja Católica eram inegociáveis para ele.
+Todo o primeiro bezerro macho nascido na fazenda São João era reservado para doar à festa de São Sebastião.
+Sua devoção principal era a Nossa Senhora do Rosário, que o acompanhou em sua despedida desta terra no dia de sua festa, 7 de outubro, de forma repentina e prematura, com apenas 64 anos. Sua promessa de estudar seus filhos foi perfeitamente cumprida. Sua honestidade e retidão de caráter deixou um legado de força e competência para seus filhos, netos e bisnetos.
+Seu nome é lembrado até os dias de hoje. Todos os membros de sua família são reconhecidos como a marca forte de seu nome. Nós somos do Joca. Somos a Jocada.
+`,
 
   galeria: [] as Array<{ src: string; alt: string }>,
 
   // Altere o link para o memorial específico
-  linkMemorial: "https://remember-memoriais.vercel.app/memorial/nome-da-pessoa",
+  linkMemorial: "https://remember-memoriais.vercel.app/memorial/lalae",
 }
 
 interface ModalProps {
