@@ -17,6 +17,16 @@ module.exports = {
       },
     },
     extend: {
+      width: {
+				'29': '6.5rem',
+        '30': '8.5rem',
+				'31': '10rem',
+			},
+			height: {
+				'29': '6.5rem',
+				'30': '8.5rem', 
+				'31': '10rem',
+			},
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
