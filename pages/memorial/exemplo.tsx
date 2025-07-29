@@ -8,9 +8,31 @@ import { X } from "lucide-react"
 // Copie este arquivo e renomeie para criar um novo memorial
 // Edite os dados abaixo conforme necessário
 
+// FUNÇÃO PARA CALCULAR A IDADE
+function calcularIdade(dataNascimentoStr: string, dataFalecimentoStr?: string): string {
+    const dataNascimento = new Date(dataNascimentoStr.split('/').reverse().join('-')); // Converte DD/MM/AAAA para AAAA-MM-DD
+    let dataFalecimento: Date;
+
+    if (dataFalecimentoStr) {
+        dataFalecimento = new Date(dataFalecimentoStr.split('/').reverse().join('-'));
+    } else {
+        dataFalecimento = new Date(); // Se não há data de falecimento, usa a data atual (para pessoas vivas)
+    }
+
+    let idade = dataFalecimento.getFullYear() - dataNascimento.getFullYear();
+    const mes = dataFalecimento.getMonth() - dataNascimento.getMonth();
+
+    if (mes < 0 || (mes === 0 && dataFalecimento.getDate() < dataNascimento.getDate())) {
+        idade--;
+    }
+
+    return `${idade} anos`;
+}
+
 const memorialData = {
   nome: "",
-  subtitulo: "",
+  dataNascimento: "", // Nova propriedade para data de nascimento (DD/MM/AAAA)
+  dataFalecimento: "", // Nova propriedade para data de falecimento (DD/MM/AAAA)
 
   // Se não quiser mostrar um campo, deixe vazio "" ou []
   localDescanso: "", 
@@ -101,6 +123,10 @@ export default function MemorialExemplo() {
     setModalImage(null)
   }
 
+  // Calcular o subtítulo e a idade
+  const subtituloDatas = `${memorialData.dataNascimento} - ${memorialData.dataFalecimento}`;
+  const idadeCalculada = calcularIdade(memorialData.dataNascimento, memorialData.dataFalecimento);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-4xl mx-auto px-4">
@@ -117,7 +143,8 @@ export default function MemorialExemplo() {
             />
           </div>
           <h1 className="text-4xl font-bold text-white mb-2">{memorialData.nome}</h1> {/* Nome com texto branco para contraste */}
-          <p className="text-xl text-blue-900">{memorialData.subtitulo}</p> {/* Subtítulo com azul mais escuro para contraste */}
+          <p className="text-xl text-blue-900">{subtituloDatas}</p> {/* Exibe as datas */}
+          <p className="text-lg text-blue-800 font-semibold">{idadeCalculada}</p> {/* Exibe a idade */}
         </div>
       </div>
 
