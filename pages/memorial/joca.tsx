@@ -40,7 +40,7 @@ Em parceria, Sr. Joca e os fazendeiros também construíram o Clube Social para 
 Era católico, atuante e piedoso, junto com sua esposa Lalae. Os princípios da Igreja Católica eram inegociáveis para ele.
 Todo o primeiro bezerro macho nascido na fazenda São João era reservado para doar à festa de São Sebastião.
 Sua devoção principal era a Nossa Senhora do Rosário, que o acompanhou em sua despedida desta terra no dia de sua festa, 7 de outubro, de forma repentina e prematura, com apenas 64 anos. Sua promessa de estudar seus filhos foi perfeitamente cumprida. Sua honestidade e retidão de caráter deixou um legado de força e competência para seus filhos, netos e bisnetos.
-Seu nome é lembrado até os dias de hoje. Todos os membros de sua família são reconhecidos como a marca forte de seu nome. Nós somos do Joca. Somos a Jocada.
+Seu nome é lembrado até os dias de hoje. Todos os membros de sua família são reconhecidos com a marca forte de seu nome. Nós somos do Joca. Somos a Jocada.
 `,
 
   galeria: [{

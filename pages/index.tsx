@@ -19,19 +19,19 @@ export default function Home() {
 
           <div className="space-y-4">
             <Link
-              href="/memorial/fulano"
+              href="/memorial/joca"
               className="block p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
             >
-              <h3 className="text-lg font-medium text-blue-600">Fulano da Silva</h3>
-              <p className="text-gray-600">23/05/1950 - 15/03/2024</p>
+              <h3 className="text-lg font-medium text-blue-600">João Victor (Joca)</h3>
+              <p className="text-gray-600">09/10/1913 - 09/10/1978</p>
             </Link>
 
             <Link
-              href="/memorial/exemplo"
+              href="/memorial/lalae"
               className="block p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
             >
-              <h3 className="text-lg font-medium text-blue-600">Template de Exemplo</h3>
-              <p className="text-gray-600">Use este template para criar novos memoriais</p>
+              <h3 className="text-lg font-medium text-blue-600">Geralda Leão (Lalae)</h3>
+              <p className="text-gray-600">13/06/1918 - 15/03/2008</p>
             </Link>
           </div>
 
